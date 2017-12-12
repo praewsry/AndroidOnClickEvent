@@ -8,19 +8,25 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.content.Intent;
 
 // TODO: XML onClick attribute & View object
 public class Option0Activity extends AppCompatActivity {
 
     private EditText etInput;
     private TextView tvOutput;
-    private Button btnProcess;
+    private Button btnProcess,btnBack,btnNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_option0);
         bindView();
+//        etInput = (EditText) findViewById(R.id.et_input_0);
+//        tvOutput = (TextView) findViewById(R.id.tv_body_0);
+//        btnProcess = (Button) findViewById(R.id.btn_process_0);
+//        btnBack = (Button) findViewById(R.id.btn_back);
+//        btnNext = (Button) findViewById(R.id.btn_next);
     }
 
     // To bind views to this activity
@@ -28,6 +34,8 @@ public class Option0Activity extends AppCompatActivity {
         etInput = (EditText) findViewById(R.id.et_input_0);
         tvOutput = (TextView) findViewById(R.id.tv_body_0);
         btnProcess = (Button) findViewById(R.id.btn_process_0);
+        btnBack = (Button) findViewById(R.id.btn_back);
+        btnNext = (Button) findViewById(R.id.btn_next);
     }
 
     // This "process" method MUST be bound in the layout XML file, "android:onClick="process""
@@ -35,6 +43,14 @@ public class Option0Activity extends AppCompatActivity {
         // Do we really need to compare view objects?
         if (v == btnProcess) {
             greet();
+        }
+        else if (v == btnBack){
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+        }
+        else if (v == btnNext){
+            Intent i = new Intent(getApplicationContext(), Option1Activity.class);
+            startActivity(i);
         }
         hideKeyboardInput(v);
     }

@@ -43,4 +43,10 @@
         android:textAppearance="@style/text_title"
         android:background="@color/colorAccent"/>
 
+    <Button
+        android:id="@+id/back5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="BACK" />
+
 </LinearLayout>
